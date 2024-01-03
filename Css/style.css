@@ -1,0 +1,94 @@
+
+body {
+    margin: 0;
+}
+
+.main {
+    display: grid;
+    place-items: center;
+}
+
+.Container-main {
+    max-width: 900px;
+}
+
+.Button {
+    border: 1px solid #242424;
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+    transition: all .5s ease;
+}
+
+.Button:hover {
+    transform: scale(1.05);
+    border: 2px solid #222;
+}
+
+.Container-Modal {
+    display: grid;
+    place-items: center;
+}
+
+.Modal {
+    display: flex;
+    position: absolute;
+    max-width: 400px;
+    justify-content: center;
+    z-index: 1000;
+    top: 10%;
+}
+
+.Modal img {
+    width: 100%;
+    height: auto;
+}
+
+#imagePokemon {
+    width: 200px;
+}
+
+.Button-type {
+    border: 2px solid #FFF;
+    box-shadow: inset 0 0 5px red, 0 0 10px red;
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: transparent;
+}
+
+.water {
+    box-shadow: inset 0 0 5px blue, 0 0 10px blue;
+}
+
+.grass {
+    box-shadow: inset 0 0 5px green, 0 0 10px green;
+}
+
+.poison {
+    box-shadow: inset 0 0 5px purple, 0 0 10px purple;
+}
+
+.bug {
+    box-shadow: inset 0 0 5px rgb(6, 45, 6), 0 0 20px rgb(2, 22, 2);
+}
+
+.electric {
+    box-shadow: inset 0 0 5px gold, 0 0 10px gold;
+}
+
+.normal {
+    box-shadow: inset 0 0 5px burlywood, 0 0 10px burlywood;
+}
+
+.fairy {
+    box-shadow: inset 0 0 5px palevioletred, 0 0 10px palevioletred;
+}
+
+.faighting {
+    box-shadow: inset 0 0 5px orange, 0 0 10px orange;
+}
+
+.psychic {
+    box-shadow: inset 0 0 5px pink, 0 0 10px pink;
+}
