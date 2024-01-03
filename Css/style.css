@@ -26,15 +26,14 @@ body {
 }
 
 .Container-Modal {
-    display: grid;
+    display: none;
     place-items: center;
 }
 
 .Modal {
     display: flex;
     position: absolute;
-    max-width: 400px;
-    justify-content: center;
+    width: 400px;
     z-index: 1000;
     top: 10%;
 }
@@ -55,6 +54,7 @@ body {
     height: 40px;
     border-radius: 50px;
     background-color: transparent;
+    margin-left: 10px;
 }
 
 .water {

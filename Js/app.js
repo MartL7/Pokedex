@@ -1,11 +1,3 @@
-function CambiarTema() {
-    const Pagina = document.querySelector("html");
-    const Icono = document.querySelector("#icon");
-
-    Pagina.setAttribute("data-bs-theme", Pagina.getAttribute("data-bs-theme") === "light" ? "dark" : "light");
-    Icono.setAttribute("class", Pagina.getAttribute("data-bs-theme") === "light" ? "bi bi-moon-stars-fill" : "bi bi-sun-fill");
-}
-
 const API_Pokemon = "https://pokeapi.co/api/v2/pokemon/";
 const pokemonContainer = document.getElementById('showPokemon')
 const containerModal = document.getElementById('Container-Modal')
@@ -19,7 +11,7 @@ for(let i = 1; i <= 151; i++) {
 }
 
 const pokemonInfo = (data) => {
-
+    console.log(data)
     const typePokemonClass = {
         water: 'water',
         grass: 'grass',
@@ -52,7 +44,7 @@ const pokemonInfo = (data) => {
 }
 
 const Send = async () => {
-    const Nombres = [];
+    const pokemonNames = [];
 
     const infoPokemon = []
 
@@ -62,7 +54,7 @@ const Send = async () => {
         const fetchPromise = fetch(API_Pokemon + i)
             .then(res => res.json())
             .then(data => {
-                Nombres.push(data.name);
+                pokemonNames.push(data.name);
                 infoPokemon.push(data)
             });
 
@@ -71,7 +63,7 @@ const Send = async () => {
 
     await Promise.all(fetchPromises);
 
-    SearchPokemon(Nombres, infoPokemon);
+    SearchPokemon(pokemonNames, infoPokemon);
 };
 
 const SearchPokemon = (name, data) => {
@@ -105,23 +97,32 @@ const SearchPokemon = (name, data) => {
 }
 
 const findedPokemon = (data) => {
-    console.log(data)
     const divPokemon = document.createElement('div');
     divPokemon.classList.add("Modal");
 
+    containerModal.style.display = "grid";
+
+    let longitudId = ``
+
+    longitudId = data.id >= 10 ? `#0${data.id}` : `#00${data.id}`
+
     divPokemon.innerHTML = `
-    <div class="card text-center rounded-5" style="width: 100%;">
+    <div class="card rounded-5" style="width: 100%;">
         <img src="${data.sprites.front_default}" id="imagePokemon" class="card-img-top" alt="Pokemon ${data.name}">
         <div class="card-body">
-            <h5 class="card-title fw-bold" id="Name">${data.name.toUpperCase()}</h5>
-            <p class="card-text"></p>
+            <h5 class="card-title fw-bold" id="Name"><span class="opacity-50">${longitudId} </span>${data.name.toUpperCase()}</h5>
+            <p class="card-text">${data.height}M ${data.weight}KG</p>
             <div class="Container-Button-types">
                 <button class="Button-type">${data.types[0].type.name}</button>
-                <button class="Button-type">Cerrar</button>
+                <button class="btn btn-outline-success" onclick="ModalClose()">Cerrar</button>
             </div>
         </div>
     </div>
     `;
 
     containerModal.append(divPokemon)
+}
+
+const ModalClose = () => {
+    containerModal.style.display = "none";
 }
