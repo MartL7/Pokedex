@@ -25,7 +25,7 @@ const pokemonInfo = (data) => {
       };
 
     const divPokemon = document.createElement('div');
-    divPokemon.classList.add("col-12", "col-md-4", "my-2");
+    divPokemon.classList.add("col-12", "offset-1", "offset-md-0","col-md-4", "my-2");
 
     divPokemon.innerHTML = `
     <div class="card text-center rounded-5" style="width: 18rem;">
@@ -114,7 +114,7 @@ const findedPokemon = (data) => {
             <p class="card-text">${data.height}M ${data.weight}KG</p>
             <div class="Container-Button-types">
                 <button class="Button-type">${data.types[0].type.name}</button>
-                <button class="btn btn-outline-success" onclick="ModalClose()">Cerrar</button>
+                <button class="btn btn-outline-success" id="Close-Button" onclick="ModalClose()">Cerrar</button>
             </div>
         </div>
     </div>
