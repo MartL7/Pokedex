@@ -33,7 +33,7 @@ body {
 .Modal {
     display: flex;
     position: absolute;
-    width: 400px;
+    width: 300px;
     z-index: 1000;
     top: 10%;
 }
@@ -41,6 +41,10 @@ body {
 .Modal img {
     width: 100%;
     height: auto;
+}
+
+#Close-Button {
+    margin-left: 15px;    
 }
 
 #imagePokemon {
